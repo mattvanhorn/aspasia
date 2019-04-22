@@ -9,6 +9,9 @@ config :aspasia, AspasiaWeb.Endpoint,
 # Print only warnings and errors during test
 config :logger, level: :warn
 
+config :aspasia,
+  account_service: AspasiaWeb.AccountServiceMock
+
 # Configure your database
 config :aspasia, Aspasia.Repo,
   adapter: Ecto.Adapters.Postgres,
@@ -16,4 +19,5 @@ config :aspasia, Aspasia.Repo,
   password: System.get_env("DATA_DB_PASS"),
   hostname: System.get_env("DATA_DB_HOST"),
   database: "gonano",
+  pool: Ecto.Adapters.SQL.Sandbox,
   pool_size: 10
